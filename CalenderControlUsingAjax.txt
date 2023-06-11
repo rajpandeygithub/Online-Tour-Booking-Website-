@@ -1,0 +1,32 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default2.aspx.cs" Inherits="Default2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+<title>Ajax Calendar extendar control exmaple in asp.net</title>
+</head>
+<body>
+<form id="form1" runat="server">
+<ajax:ToolkitScriptManager ID="toolkit1" runat="server"></ajax:ToolkitScriptManager>
+<table>
+<tr>
+<td><b>Select Date:</b></td>
+<td>
+<asp:TextBox ID="txtDate" runat="server" />
+<ajax:CalendarExtender ID="CalendarExtender1" TargetControlID="txtDate" Format="dd/MM/yyyy" runat="server">
+</ajax:CalendarExtender> 
+</td>
+</tr>
+<tr>
+<td><b>Select Date</b></td>
+<td>
+<asp:TextBox ID="txtDate1" runat="server"/> <asp:ImageButton ID="imgbtnCalendar" runat="server" />
+<ajax:CalendarExtender ID="CalendarExtender2" TargetControlID="txtDate1" PopupButtonID="imgbtnCalendar" runat="server" />
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

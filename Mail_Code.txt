@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+//using System.Linq;
+using System.Web;
+using System.Net;
+using System.Net.Mail;
+
+public class Utility
+{
+	public Utility()
+	{
+		
+	}
+
+
+    public String sendMail(String from, String pass, String to, String subject, String body)
+    {
+        String msg = "Mail Send Successfully";
+        try
+        {
+            MailMessage Msg = new MailMessage();
+            // Sender e-mail address.
+            Msg.From = new MailAddress(from);
+            // Recipient e-mail address.
+            Msg.To.Add(to);
+            Msg.Subject = subject;
+            Msg.Body = body;
+            // your remote SMTP server IP.
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 25;
+            smtp.Credentials = new System.Net.NetworkCredential(from, pass);
+            smtp.EnableSsl = true;
+            smtp.Send(Msg);
+            Msg = null;
+
+        }
+        catch (Exception ex)
+        {
+            msg = "Error While Sending Mail";
+        }
+        return msg;
+    }
+}
+
+
+
+
+
+
+
+=============================================================================
+ protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        Utility ut = new Utility();
+        String msg = ut.sendMail("bloomstoursandtravels@gmail.com", "div12345", "bloomstours@gmail.com", "Blooms Travels Here", "Hello");
+        Label1.Text = msg;
+    }
